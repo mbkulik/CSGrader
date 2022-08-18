@@ -22,6 +22,7 @@ dependencies {
   implementation("com.google.code.gson:gson:2.9.1")
   testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
   implementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+  implementation("org.junit.platform:junit-platform-launcher:1.9.0")
 }
 
 tasks.getByName<Test>("test") {
