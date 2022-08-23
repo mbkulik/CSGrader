@@ -17,16 +17,18 @@ public class Grader implements  AfterEachCallback {
         if (r != null) {
             TestMetaData t = new TestMetaData();
             t.name = r.description();
-
-            if (context.getExecutionException().isPresent()) { // test failed?
-                t.score = 0;
-            } else { //  test succeeded
-                t.score = r.points();
-            }
-
             t.max_score = r.points();
             t.visibility = r.visibility();
             t.stdout_visibility = r.stdout_visibility();
+
+            if (context.getExecutionException().isPresent()) { // test failed?
+                t.score = 0;
+                if(r.stdout_visibility().equalsIgnoreCase("visible")) {
+                    t.output = context.getExecutionException().get().getMessage();
+                }
+            } else { //  test succeeded
+                t.score = r.points();
+            }
 
             c.tests.add(t);
         }
