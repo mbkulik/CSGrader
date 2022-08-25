@@ -5,6 +5,6 @@ class TestMetaData {
     String visibility;
     String stdout_visibility;
     String output;
-    int score;
-    int max_score;
+    double score;
+    double max_score;
 }

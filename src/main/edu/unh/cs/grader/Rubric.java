@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 @Target(ElementType.METHOD)
 public @interface Rubric {
     String description() default "";
-    int points() default 0;
+    double points() default 0.0;
     // Controlling test case visibility
     //https://gradescope-autograders.readthedocs.io/en/latest/specs/#controlling-test-case-visibility
     String visibility() default "visible";
