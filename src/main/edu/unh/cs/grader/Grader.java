@@ -31,6 +31,7 @@ public class Grader implements  AfterEachCallback {
             }
 
             c.tests.add(t);
+            c.total_score += t.score;
         }
 
     }

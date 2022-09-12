@@ -6,6 +6,9 @@ class Collector {
 
     private static final Collector instance = new Collector();
     ArrayList<TestMetaData> tests = new ArrayList<>();
+    double total_score = 0;
+    String stdout_visibility = "visible"; // By default
+    String visibility = "visible"; // By default
 
     //private constructor to avoid client applications to use constructor
     private Collector(){}
