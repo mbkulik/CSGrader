@@ -14,5 +14,4 @@ public @interface Rubric {
     // Controlling test case visibility
     //https://gradescope-autograders.readthedocs.io/en/latest/specs/#controlling-test-case-visibility
     String visibility() default "visible";
-    String stdout_visibility() default "visible";
 }

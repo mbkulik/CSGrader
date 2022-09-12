@@ -19,13 +19,9 @@ public class Grader implements  AfterEachCallback {
             t.name = r.description();
             t.max_score = r.points();
             t.visibility = r.visibility();
-            t.stdout_visibility = r.stdout_visibility();
 
             if (context.getExecutionException().isPresent()) { // test failed?
                 t.score = 0;
-                if(r.stdout_visibility().equalsIgnoreCase("visible")) {
-                    t.output = context.getExecutionException().get().getMessage();
-                }
             } else { //  test succeeded
                 t.score = r.points();
             }
@@ -33,6 +29,5 @@ public class Grader implements  AfterEachCallback {
             c.tests.add(t);
             c.total_score += t.score;
         }
-
     }
 }
