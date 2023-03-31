@@ -21,7 +21,7 @@ public class GraderListener implements TestExecutionListener {
         String s = gson.toJson(c);
 
         // Print the total score
-        System.err.println("STUDENTS TOTAL SCORE:   " + c.total_score);
+        System.err.println("STUDENTS TOTAL SCORE:   " + c.score);
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("results.json"));
