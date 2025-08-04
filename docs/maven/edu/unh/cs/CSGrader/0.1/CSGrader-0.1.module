@@ -1,0 +1,83 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "edu.unh.cs",
+    "module": "CSGrader",
+    "version": "0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.0.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "CSGrader-0.1.jar",
+          "url": "CSGrader-0.1.jar",
+          "size": 4454,
+          "sha512": "593286c58e045d713c2fc389860b05d69d9af47f55e4613db9e3c4b8ac82abeca459c74f639a9e7924233289af965209f205ea3bbcd38e00daec9de100a3eee8",
+          "sha256": "074735cf838a12d142d03aa0333d281315f379a4d40cb26798de197d9724620e",
+          "sha1": "8921a2c5bd05abd1ed93b042ce094a20d8b0745e",
+          "md5": "b3bdd39b15a975087bf2b26862f6a98f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.13.1"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.13.4"
+          }
+        },
+        {
+          "group": "org.junit.platform",
+          "module": "junit-platform-launcher",
+          "version": {
+            "requires": "1.13.4"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "CSGrader-0.1.jar",
+          "url": "CSGrader-0.1.jar",
+          "size": 4454,
+          "sha512": "593286c58e045d713c2fc389860b05d69d9af47f55e4613db9e3c4b8ac82abeca459c74f639a9e7924233289af965209f205ea3bbcd38e00daec9de100a3eee8",
+          "sha256": "074735cf838a12d142d03aa0333d281315f379a4d40cb26798de197d9724620e",
+          "sha1": "8921a2c5bd05abd1ed93b042ce094a20d8b0745e",
+          "md5": "b3bdd39b15a975087bf2b26862f6a98f"
+        }
+      ]
+    }
+  ]
+}

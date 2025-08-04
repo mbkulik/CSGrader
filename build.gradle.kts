@@ -4,29 +4,37 @@ repositories {
 
 plugins {
   `java-library`
-  id("com.adarshr.test-logger") version "3.1.0"
-}
-
-testlogger {
-  showStandardStreams = true
+  `maven-publish`
 }
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(17))
+    languageVersion.set(JavaLanguageVersion.of(21))
+  }
+}
+
+group = "edu.unh.cs"
+version = "0.1"
+
+publishing {
+  publications {
+    create<MavenPublication>("maven") {
+      from(components["java"])
+    }
+  }
+
+  repositories {
+    maven {
+      name = "Local"
+      url = uri(layout.projectDirectory.dir("docs/maven"))
+    }
   }
 }
 
 dependencies {
-  implementation("org.apache.commons:commons-lang3:3.12.0")
-  implementation("com.google.code.gson:gson:2.9.1")
-  testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-  implementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
-  implementation("org.junit.platform:junit-platform-launcher:1.9.0")
-}
-
-tasks.getByName<Test>("test") {
-  useJUnitPlatform()
+  implementation("com.google.code.gson:gson:2.13.1")
+  implementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
+  implementation("org.junit.platform:junit-platform-launcher:1.13.4")
 }
 
 sourceSets {
@@ -40,13 +48,4 @@ sourceSets {
       setSrcDirs(listOf("src/test"))
     }
   }
-}
-
-tasks.jar {
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-    from(dependencies)
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
