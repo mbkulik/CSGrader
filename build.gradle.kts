@@ -14,7 +14,7 @@ java {
 }
 
 group = "edu.unh.cs"
-version = "0.1"
+version = "0.2"
 
 publishing {
   publications {
