@@ -1,32 +1,26 @@
 package edu.unh.cs.grader;
 
-import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestPlan;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class GraderListener implements TestExecutionListener {
 
     public void testPlanExecutionFinished(TestPlan testPlan) {
 
-        Collector c = Collector.getInstance();
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String s = gson.toJson(c);
+        String json = gson.toJson(Collector.getInstance());
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("results.json"));
-            writer.write(s);
-            writer.close();
-
-        } catch(IOException e) {
-            // swallow error :(
+            Files.writeString(Path.of("results.json"), json);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
         }
     }
 }
