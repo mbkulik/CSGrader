@@ -1,3 +1,6 @@
+group = "edu.unh.cs"
+version = "0.2"
+
 repositories {
   mavenCentral()
 }
@@ -13,8 +16,13 @@ java {
   }
 }
 
-group = "edu.unh.cs"
-version = "0.1"
+tasks.withType<JavaCompile> {
+  options.compilerArgs.add("-Xlint:all")
+}
+
+tasks.named<Test>("test") {
+  useJUnitPlatform()
+}
 
 publishing {
   publications {
@@ -32,9 +40,9 @@ publishing {
 }
 
 dependencies {
-  implementation("com.google.code.gson:gson:2.13.1")
-  implementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
-  implementation("org.junit.platform:junit-platform-launcher:1.13.4")
+  api("org.junit.jupiter:junit-jupiter:5.13.4")
+  implementation("com.google.code.gson:gson:2.13.2")
+  implementation("org.junit.platform:junit-platform-launcher")
 }
 
 sourceSets {
