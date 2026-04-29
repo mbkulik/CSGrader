@@ -4,13 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(Grader.class)
-public class GraderTest {
-    @Rubric(description = "this is a small test", points = 2.0)
+@Rubric(points = 20)
+public class MoreGraderTests {
+    @Rubric(description = "this is a small test", points = 1.0)
     @Test
     void smallTest() {
     }
 
-    @Rubric(description = "this is a big test", points = 8.0)
+    @Rubric(description = "this is a big test", points = 3.0)
     @Test
     void bigTest() {
     }

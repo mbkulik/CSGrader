@@ -1,26 +1,30 @@
 package edu.unh.cs.grader;
 
-import java.lang.reflect.Method;
-
 import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-public class Grader implements AfterEachCallback {
+import java.lang.reflect.Method;
 
-    @Override
-    public void afterEach(ExtensionContext context) {
-        Method m = context.getRequiredTestMethod();
-        Rubric r = m.getAnnotation(Rubric.class);
+// using AnnotationSupport could provide inheritance of Rubric.
+//import org.junit.platform.commons.support.AnnotationSupport;
 
-        if (r != null) {
-            TestMetaData t = new TestMetaData();
-            t.name       = r.description();
-            t.max_score  = r.points();
-            t.visibility = r.visibility();
-            t.score      = context.getExecutionException().isPresent() ? 0 // test failed?
-                : r.points(); //  test succeeded
+public final class Grader implements BeforeAllCallback, AfterEachCallback {
+  public void beforeAll(ExtensionContext context) {
+    Class<?> testClass = context.getRequiredTestClass();
+    Rubric rubric = testClass.getAnnotation(Rubric.class);
+    if (rubric != null)
+      Collector.getInstance().addClass(testClass, rubric.points());
+  }
 
-            Collector.getInstance().addTest(t);
-        }
+  public void afterEach(ExtensionContext context) {
+    Method testMethod = context.getRequiredTestMethod();
+    Class<?> testClass = context.getRequiredTestClass();
+    Rubric rubric = testMethod.getAnnotation(Rubric.class);
+
+    if (rubric != null) {
+      double score = context.getExecutionException().isPresent() ? 0.0 : rubric.points();
+      Collector.getInstance().addTest(testClass, new TestMetaData(rubric, score));
     }
+  }
 }

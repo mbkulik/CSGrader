@@ -1,5 +1,5 @@
 group = "edu.unh.cs"
-version = "0.2"
+version = "0.3"
 
 repositories {
   mavenCentral()
@@ -40,8 +40,8 @@ publishing {
 }
 
 dependencies {
-  api("org.junit.jupiter:junit-jupiter:5.13.4")
-  implementation("com.google.code.gson:gson:2.13.2")
+  api("org.junit.jupiter:junit-jupiter:6.0.3")
+  implementation("com.google.code.gson:gson:2.14.0")
   implementation("org.junit.platform:junit-platform-launcher")
 }
 
