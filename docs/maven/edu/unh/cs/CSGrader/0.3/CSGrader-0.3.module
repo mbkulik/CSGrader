@@ -10,7 +10,7 @@
   },
   "createdBy": {
     "gradle": {
-      "version": "9.1.0"
+      "version": "9.5.0"
     }
   },
   "variants": [
@@ -23,15 +23,6 @@
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api"
       },
-      "dependencies": [
-        {
-          "group": "org.junit.jupiter",
-          "module": "junit-jupiter",
-          "version": {
-            "requires": "6.0.3"
-          }
-        }
-      ],
       "files": [
         {
           "name": "CSGrader-0.3.jar",
@@ -55,6 +46,13 @@
       },
       "dependencies": [
         {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "6.0.3"
+          }
+        },
+        {
           "group": "com.google.code.gson",
           "module": "gson",
           "version": {
@@ -64,13 +62,6 @@
         {
           "group": "org.junit.platform",
           "module": "junit-platform-launcher"
-        },
-        {
-          "group": "org.junit.jupiter",
-          "module": "junit-jupiter",
-          "version": {
-            "requires": "6.0.3"
-          }
         }
       ],
       "files": [

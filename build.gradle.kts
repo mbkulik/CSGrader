@@ -40,9 +40,10 @@ publishing {
 }
 
 dependencies {
-  api("org.junit.jupiter:junit-jupiter:6.0.3")
+  implementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
   implementation("com.google.code.gson:gson:2.14.0")
   implementation("org.junit.platform:junit-platform-launcher")
+  testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
 }
 
 sourceSets {
