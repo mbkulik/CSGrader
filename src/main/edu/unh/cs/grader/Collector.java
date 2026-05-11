@@ -35,8 +35,8 @@ final class Collector {
     double score = 0.0;
     for (var entry : metaData.entrySet()) {
       List<TestMetaData> data = entry.getValue();
-      double weight = weights.getOrDefault(entry.getKey(), 100.0);
       double total = data.stream().mapToDouble(TestMetaData::max_score).sum();
+      double weight = weights.getOrDefault(entry.getKey(), total);
       double scale = weight / total;
       for (var test : entry.getValue()) {
         var scaledTest = test.scale(scale);
