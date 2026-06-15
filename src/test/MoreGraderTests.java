@@ -11,7 +11,7 @@ public class MoreGraderTests {
     void smallTest() {
     }
 
-    @Rubric(description = "this is a big test", points = 3.0)
+    @Rubric(description = "this is a big test", points = 2.0)
     @Test
     void bigTest() {
     }
