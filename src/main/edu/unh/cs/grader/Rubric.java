@@ -7,7 +7,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.TYPE, ElementType.METHOD})
 public @interface Rubric {
     String description() default "";
     double points() default 0.0;

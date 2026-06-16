@@ -1,0 +1,80 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "edu.unh.cs",
+    "module": "CSGrader",
+    "version": "0.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.5.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "CSGrader-0.3.jar",
+          "url": "CSGrader-0.3.jar",
+          "size": 7454,
+          "sha512": "be8991174c45e16b8d9fe029898a5cb17d90d3c3d7be2186fc1939ce2ec7b1e3f247cb1b52ce63ffc6799dffddf35ddd98e15a5cc474ae27b47d3afda908174d",
+          "sha256": "fa86a2bf8521980a44d3a8c6b6c918b9b8f9542cd82706db86718d6224628599",
+          "sha1": "1406e65c948ff8b60561cf92fd6b6185caf7f842",
+          "md5": "ac0efa0ee63ca3fa3e4ba09b6c01b38a"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "6.0.3"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.14.0"
+          }
+        },
+        {
+          "group": "org.junit.platform",
+          "module": "junit-platform-launcher"
+        }
+      ],
+      "files": [
+        {
+          "name": "CSGrader-0.3.jar",
+          "url": "CSGrader-0.3.jar",
+          "size": 7454,
+          "sha512": "be8991174c45e16b8d9fe029898a5cb17d90d3c3d7be2186fc1939ce2ec7b1e3f247cb1b52ce63ffc6799dffddf35ddd98e15a5cc474ae27b47d3afda908174d",
+          "sha256": "fa86a2bf8521980a44d3a8c6b6c918b9b8f9542cd82706db86718d6224628599",
+          "sha1": "1406e65c948ff8b60561cf92fd6b6185caf7f842",
+          "md5": "ac0efa0ee63ca3fa3e4ba09b6c01b38a"
+        }
+      ]
+    }
+  ]
+}
