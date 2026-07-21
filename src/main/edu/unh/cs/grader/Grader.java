@@ -15,6 +15,10 @@ public final class Grader implements BeforeAllCallback, AfterEachCallback {
     Rubric rubric = testClass.getAnnotation(Rubric.class);
     if (rubric != null)
       Collector.getInstance().addClass(testClass, rubric.points());
+
+    LatePenalty penalty = testClass.getAnnotation(LatePenalty.class);
+    if (penalty != null)
+      Collector.getInstance().addLatePenalty(penalty);
   }
 
   public void afterEach(ExtensionContext context) {
